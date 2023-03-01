@@ -1,0 +1,43 @@
+Objective
+Name: Is palindrome. 
+Description: 
+Test if a word is a palindrome. A word is a palindrome if only if it can be read from left to right or from right to left: gag; kayak; php; radar;....
+Instructions
+Instructions:
+Breakdown of the processing: we compare the characters located at the ends of the word:
+if equality we test the rest of the word
+if difference we stop
+Stop condition: an empty word or a word containing a single character is a palindrome.
+
+
+    def is_palindrome(word):
+    """
+    Checks if a word is a palindrome.
+    Returns True if the word is a palindrome, False otherwise.
+    """
+    # Define the stop condition: an empty word or a word containing a single character is a palindrome
+    if len(word) <= 1:
+        return True
+    # Compare the characters at the ends of the word
+    if word[0] == word[-1]:
+        # Test the rest of the word
+        return is_palindrome(word[1:-1])
+    else:
+        # If the characters are different, the word is not a palindrome
+        return False
+
+
+
+
+
+
+word1 = "gag"
+word2 = "hello"
+if is_palindrome(word1):
+    print(word1, "is a palindrome")
+else:
+    print(word1, "is not a palindrome")
+if is_palindrome(word2):
+    print(word2, "is a palindrome")
+else:
+    print(word2, "is not a palindrome")
